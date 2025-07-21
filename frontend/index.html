@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SocialGuard Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>SocialGuard Wallet</h1>
+    <div id="walletStatus">Wallet Address: Loading...</div>
+    <button onclick="addContact()">Add Trusted Contact</button>
+    <button onclick="requestRecovery()">Request Recovery</button>
+    <button onclick="executeTransaction()">Execute Gasless Transaction</button>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
+    <script>
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        async function addContact() {
+            const contact = prompt("Enter contact address:");
+            const signer = provider.getSigner();
+            const wallet = new ethers.Contract("YOUR_CONTRACT_ADDRESS", ["function addTrustedContact(address)"], signer);
+            await wallet.addTrustedContact(contact);
+            alert("Contact added!");
+        }
+        // Add similar functions for other actions
+    </script>
+</body>
+</html>

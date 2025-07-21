@@ -1,0 +1,14 @@
+{
+  "name": "socialguardwallet",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run scripts/deploy.js --network blockdagTestnet"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@openzeppelin/contracts": "^4.9.0",
+    "dotenv": "^16.0.0",
+    "hardhat": "^2.9.0"
+  }
+}
